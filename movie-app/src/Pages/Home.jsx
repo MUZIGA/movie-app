@@ -1,5 +1,5 @@
 import { useState, } from "react";
-import MovieCard from "../Components/SearchBar";
+import MovieCard from "../Components/MovieCard";
 import SearchBar from "../Components/SearchBar";
 import CategoryFilter from "../components/Category";
 
