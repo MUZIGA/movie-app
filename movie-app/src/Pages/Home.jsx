@@ -1,7 +1,7 @@
-import { useState, } from "react";
+import { useState } from "react";
 import MovieCard from "../Components/MovieCard";
 import SearchBar from "../Components/SearchBar";
-import CategoryFilter from "../components/Category";
+import CategoryFilter from "../Components/CategoryFilter";
 
 export default function Home({ movies, onFavorite }) {
   const [search, setSearch] = useState("");
@@ -16,13 +16,14 @@ export default function Home({ movies, onFavorite }) {
   const categories = [...new Set(movies.map((m) => m.category))];
 
   return (
-    <div className="p-4">
+    <div className="container mx-auto p-4">
       <SearchBar search={search} setSearch={setSearch} />
       <CategoryFilter categories={categories} setCategory={setCategory} />
+      
       {filteredMovies.length === 0 ? (
-        <p>No movies found.</p>
+        <p className="text-center text-gray-500">No movies found.</p>
       ) : (
-        <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {filteredMovies.map((movie) => (
             <MovieCard key={movie.id} movie={movie} onFavorite={onFavorite} />
           ))}
